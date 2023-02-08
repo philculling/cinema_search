@@ -1,5 +1,6 @@
 # cinema_search
 Project 1
-Nailah
 
-Phil
+
+Team: Phil, Nailah, Piers & Kosar
+
