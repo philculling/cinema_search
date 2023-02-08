@@ -1,4 +1,6 @@
 # cinema_search
 Project 1
 
-Piers - Testing
+
+Team: Phil, Nailah, Piers & Kosar
+
