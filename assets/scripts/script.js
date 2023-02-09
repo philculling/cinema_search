@@ -12,7 +12,7 @@ var queryURLomdbapi = "http://www.omdbapi.com/?t=" + searchInput + "&apikey=" + 
     url: queryURLomdbapi,
     method: "GET"
   }).then(function (response) {
-    //tests, all ...were fine
+    //tests, all fine
     console.log(response.Title);
     console.log(response.Year);
     console.log(response.Rated);
@@ -21,6 +21,9 @@ var queryURLomdbapi = "http://www.omdbapi.com/?t=" + searchInput + "&apikey=" + 
     console.log(response.Plot);
     console.log(response.BoxOffice);
     console.log(response.Poster);
+
+    $("#filmdata").empty();
+    $("#poster").empty();
 
     var title = response.Title;
     var pTitle = $("<p>").text("Title: " + title);
