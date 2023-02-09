@@ -32,4 +32,20 @@ function persistUserSearch(input) {
     localStorage.setItem(LOCAL_STORAGE_SEARCH_KEY, JSON.stringify(storedSearches));
 }
 
+function displayLocalStorageOnInitialLoad() {
+    var storedSearches = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SEARCH_KEY));
+
+    if (storedSearches === null) {
+        return;
+    }
+
+    storedSearches.forEach(element => {
+        const liElement = $("<li>");
+        liElement.addClass("list-group-item");
+        liElement.text(element);
+        $("#history").append(liElement);
+    });
+}
+
 searchButtonListener();
+displayLocalStorageOnInitialLoad();
