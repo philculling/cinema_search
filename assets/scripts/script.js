@@ -1,4 +1,5 @@
 var ytApi = "AIzaSyCbq2wbLQScvSCu8bJhd4ByuojcF55ekzo"; 
+const LOCAL_STORAGE_SEARCH_KEY = "searches"
 var omdbApi = "d5cced46";
 var searchInput = "";
 
@@ -70,7 +71,6 @@ function callYoutubeApi() {
     });
 }
 
-
 function searchButtonListener() {
     $("#search-button").on("click", function() {
     
@@ -80,9 +80,41 @@ function searchButtonListener() {
         if (!searchInput) {
             return;
         }
-        callOmdbApi();
         
+        callOmdbApi();
+        persistUserSearch(searchInput);
     })
 }
 
+function persistUserSearch(input) {
+    // parse local storage
+    var storedSearches = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SEARCH_KEY));
+
+    // if object is null, set it has an array, otherwise append new search input
+    if (storedSearches === null) {
+        storedSearches = [input];
+    } else {
+        storedSearches.unshift(input);
+    }
+
+    // persist new input with other stored searches
+    localStorage.setItem(LOCAL_STORAGE_SEARCH_KEY, JSON.stringify(storedSearches));
+}
+
+function displayLocalStorageOnInitialLoad() {
+    var storedSearches = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SEARCH_KEY));
+
+    if (storedSearches === null) {
+        return;
+    }
+
+    storedSearches.forEach(element => {
+        const liElement = $("<li>");
+        liElement.addClass("list-group-item");
+        liElement.text(element);
+        $("#history").append(liElement);
+    });
+}
+
 searchButtonListener();
+displayLocalStorageOnInitialLoad();
