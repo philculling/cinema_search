@@ -7,9 +7,8 @@ function searchButtonListener() {
         // get text from input field and remove white space before and after
         var searchInput = $("#film-search").val().trim();
     
-        // validate it is not an empty string
+        // validate input is not an empty string
         if (!searchInput) {
-            console.log("Empty String");
             return;
         }
     })
