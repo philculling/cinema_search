@@ -3,6 +3,7 @@ var omdbApi = "d5cced46";
 var searchInput = "";
 var queryURLomdbapi = "http://www.omdbapi.com/?t=" + searchInput + "&apikey=d5cced46"
 
+
 function callOmdbApi() {
 $.ajax({
     url: queryURLomdbapi,
@@ -29,7 +30,6 @@ function callYoutubeApi() {
     var film = searchInput + " trailer";
     var ytQueryUrl =
     `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${film}&type=video&videoDuration=short&videoEmbeddable=true&key=${ytApi}`;
-    
     $.ajax({
         url: ytQueryUrl,
         method: "GET"
@@ -58,4 +58,12 @@ function searchButtonListener() {
     })
 }
 
+function playButtonListener() {
+    $("#play-button").on("click", function() {
+        
+        callYoutubeApi();
+    });
+}
+
 searchButtonListener();
+playButtonListener();
