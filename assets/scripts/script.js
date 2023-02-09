@@ -7,6 +7,7 @@ var filmDiv = $("#filmdata");
 var posterDiv = $("#poster");
 
 
+
 function callOmdbApi() {
 var queryURLomdbapi = "http://www.omdbapi.com/?t=" + searchInput + "&apikey=" + omdbApi;
   $.ajax({
@@ -60,7 +61,6 @@ function callYoutubeApi() {
     var film = searchInput + " trailer";
     var ytQueryUrl =
     `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${film}&type=video&videoDuration=short&videoEmbeddable=true&key=${ytApi}`;
-    
     $.ajax({
         url: ytQueryUrl,
         method: "GET"
@@ -87,6 +87,13 @@ function searchButtonListener() {
         callOmdbApi();
         persistUserSearch(searchInput);
     })
+}
+
+function playButtonListener() {
+    $("#play-button").on("click", function() {
+        
+        callYoutubeApi();
+    });
 }
 
 function persistUserSearch(input) {
@@ -116,8 +123,13 @@ function displayLocalStorageOnInitialLoad() {
         liElement.addClass("list-group-item");
         liElement.text(element);
         $("#history").append(liElement);
+
     });
 }
 
 searchButtonListener();
+
+playButtonListener();
+
 displayLocalStorageOnInitialLoad();
+
