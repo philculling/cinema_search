@@ -76,17 +76,20 @@ function callYoutubeApi() {
 
 function searchButtonListener() {
     $("#search-button").on("click", function() {
-    
-        // get text from input field and remove white space before and after
-        searchInput = $("#film-search").val().trim();
-        // validate input is not an empty string
-        if (!searchInput) {
-            return;
-        }
-        
-        callOmdbApi();
-        persistUserSearch(searchInput);
+        searchForAFilm();
     })
+}
+
+function searchForAFilm() {
+    // get text from input field and remove white space before and after
+    searchInput = $("#film-search").val().trim();
+    // validate input is not an empty string
+    if (!searchInput) {
+        return;
+    }
+
+    callOmdbApi();
+    persistUserSearch(searchInput);
 }
 
 function playButtonListener() {
@@ -140,6 +143,15 @@ function searchHistoryButtonListener() {
     })
 }
 
+function searchInputReturnEvent() {
+    $("#film-search").keydown(function(event) {
+        // if user presses enter (keycode 13), search for film
+        if (event.keyCode === 13) {
+            searchForAFilm();
+        }
+    })
+}
+
 searchButtonListener();
 
 playButtonListener();
@@ -147,3 +159,5 @@ playButtonListener();
 displayLocalStorageOnInitialLoad();
 
 searchHistoryButtonListener();
+
+searchInputReturnEvent();
