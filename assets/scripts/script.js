@@ -7,6 +7,10 @@ var searchInput = "";
 var filmDiv = $("#filmdata");
 var posterDiv = $("#poster");
 
+var modalTitle = $('#modal-title');
+var modalBody = $('.modal-body');
+
+
 
 
 function callOmdbApi() {
@@ -57,7 +61,7 @@ var queryURLomdbapi = "http://www.omdbapi.com/?t=" + searchInput + "&apikey=" + 
   })
 }
 
-//Youtube API Call -- this needs to run when the play clip button is clicked - need a play button and event listener on that button
+//Youtube API Call - runs when play button clicked (after search)
 function callYoutubeApi() {
     var film = searchInput + " trailer";
     var ytQueryUrl =
@@ -68,9 +72,12 @@ function callYoutubeApi() {
     }).then(function (response) {
         var videoId = response.items[0].id.videoId;
         var videoTitle = response.items[0].snippet.title;
-        var videoURL = `https://www.youtube.com/watch?v=${videoId}`;
+        var videoURL = `https://www.youtube.com/v/${videoId}`;
         // console.log(videoTitle);
         // console.log(videoURL);
+        modalTitle.text(videoTitle);
+        
+
 
     });
 }

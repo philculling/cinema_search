@@ -34,18 +34,13 @@
             <div class="col-sm-6" id="posterContainer"><!--We want this to be on the left-->
                 <div id="poster">
                 </div>
-                <button id="play-button">
-                    <p>Play Clip</p>
+                <!-- Button to trigger modal -->
+                <button id="play-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#playYoutubeVideo">
+                    Play Clip
                 </button>
             </div>
             <div class="col-sm-6" id="filmdata"><!--We want this to be on the right-->
             </div>
-        <div id="poster">
-            <!-- Button to trigger modal -->
-            <button id="play-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#playYoutubeVideo">
-                Play Clip
-            </button>
-        </div>
         <div id="filmdata">
         
         </div>
@@ -57,13 +52,12 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <h5 class="modal-title" id="modal-title">Modal title</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
             <div class="modal-body">
-          
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
