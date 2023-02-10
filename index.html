@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cinema Search</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">    
@@ -30,15 +30,16 @@
     </div>
 
     <div class="container" id="filmInfo">
-        <div id="posterContainer">
-            <div id="poster">
+        <div class="row">
+            <div class="col-sm-6" id="posterContainer"><!--We want this to be on the left-->
+                <div id="poster">
+                </div>
+                <button id="play-button">
+                    <p>Play Clip</p>
+                </button>
             </div>
-            <button id="play-button">
-               <p>Play Clip</p>
-            </button>
-        </div>
-        <div id="filmdata">
-
+            <div class="col-sm-6" id="filmdata"><!--We want this to be on the right-->
+            </div>
         </div>
     </div>
 
