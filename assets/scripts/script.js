@@ -19,7 +19,11 @@ var queryURLomdbapi = "http://www.omdbapi.com/?t=" + searchInput + "&apikey=" + 
     url: queryURLomdbapi,
     method: "GET"
   }).then(function (response) {
+    console.log(response.Response);
+    if (response.Response === "True") {
     //tests, all fine
+    console.log(queryURLomdbapi);
+    console.log(response);
     console.log(response.Title);
     console.log(response.Year);
     console.log(response.Rated);
@@ -57,7 +61,10 @@ var queryURLomdbapi = "http://www.omdbapi.com/?t=" + searchInput + "&apikey=" + 
     var imgURL = response.Poster;
     var image = $("<img>").attr("src", imgURL);
     posterDiv.append(image);
-
+  }
+else {
+  console.log("This is not a valid film");
+}
   })
 }
 
