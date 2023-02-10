@@ -1,5 +1,6 @@
 var ytApi = "AIzaSyCbq2wbLQScvSCu8bJhd4ByuojcF55ekzo"; 
-const LOCAL_STORAGE_SEARCH_KEY = "searches"
+const LOCAL_STORAGE_SEARCH_KEY = "searches";
+const MAX_STORED_SEARCHES = 5;
 var omdbApi = "d5cced46";
 var searchInput = "";
 
@@ -107,7 +108,11 @@ function persistUserSearch(input) {
     if (storedSearches === null) {
         storedSearches = [input];
     } else {
+        // ensure no more then 5 searches are displayed
         storedSearches.unshift(input);
+        if (storedSearches.length > MAX_STORED_SEARCHES) {
+            storedSearches = storedSearches.slice(0, MAX_STORED_SEARCHES);
+        }
     }
 
     // persist new input with other stored searches
