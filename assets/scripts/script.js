@@ -119,12 +119,25 @@ function displayLocalStorageOnInitialLoad() {
     }
 
     storedSearches.forEach(element => {
-        const liElement = $("<li>");
-        liElement.addClass("list-group-item");
+        const liElement = $("<button>");
+        liElement.addClass("list-group-item list-group-item-action");
         liElement.text(element);
         $("#history").append(liElement);
-
     });
+}
+
+function searchHistoryButtonListener() {
+    $(".list-group-item-action").on("click", function(event) {
+        // get element
+        const buttonEl = event.currentTarget;
+        
+        // get film title
+        const filmTitle = $(buttonEl).text();
+        
+        // make call
+        searchInput = filmTitle;
+        callOmdbApi()
+    })
 }
 
 searchButtonListener();
@@ -133,3 +146,4 @@ playButtonListener();
 
 displayLocalStorageOnInitialLoad();
 
+searchHistoryButtonListener();
