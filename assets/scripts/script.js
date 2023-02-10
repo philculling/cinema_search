@@ -126,9 +126,24 @@ function displayLocalStorageOnInitialLoad() {
     });
 }
 
+function searchHistoryButtonListener() {
+    $(".list-group-item-action").on("click", function(event) {
+        // get element
+        const buttonEl = event.currentTarget;
+        
+        // get film title
+        const filmTitle = $(buttonEl).text();
+        
+        // make call
+        searchInput = filmTitle;
+        callOmdbApi()
+    })
+}
+
 searchButtonListener();
 
 playButtonListener();
 
 displayLocalStorageOnInitialLoad();
 
+searchHistoryButtonListener();
