@@ -119,11 +119,10 @@ function displayLocalStorageOnInitialLoad() {
     }
 
     storedSearches.forEach(element => {
-        const liElement = $("<li>");
-        liElement.addClass("list-group-item");
+        const liElement = $("<button>");
+        liElement.addClass("list-group-item list-group-item-action");
         liElement.text(element);
         $("#history").append(liElement);
-
     });
 }
 
