@@ -79,13 +79,18 @@ function callYoutubeApi() {
     }).then(function (response) {
         var videoId = response.items[0].id.videoId;
         var videoTitle = response.items[0].snippet.title;
-        var videoURL = `https://www.youtube.com/v/${videoId}`;
-        // console.log(videoTitle);
-        // console.log(videoURL);
+        var videoURL = `https://www.youtube.com/embed/${videoId}`;
+
+        modalTitle.empty();
+        modalBody.empty();
+
         modalTitle.text(videoTitle);
-        
-
-
+        modalBody.append(`<iframe width="100%" height="400" 
+                            src=${videoURL} frameborder="0" allowfullscreen>
+                          </iframe> 
+                        `);
+    }).catch(function (error) {
+        console.log(error);
     });
 }
 
@@ -113,6 +118,17 @@ function playButtonListener() {
         callYoutubeApi();
     });
 }
+
+function modalCloseButton() {
+    $("#close-button").on("click", function() {
+        
+        //empty modal contents on close
+        modalTitle.empty();
+        modalBody.empty();
+    });
+}
+
+
 
 function persistUserSearch(input) {
     // parse local storage
@@ -174,6 +190,8 @@ function searchInputReturnEvent() {
 searchButtonListener();
 
 playButtonListener();
+
+modalCloseButton();
 
 displayLocalStorageOnInitialLoad();
 
