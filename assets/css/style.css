@@ -30,12 +30,14 @@ h1 {
 h2 {
     font-family: 'Poppins', sans-serif;
     color: white;
+    margin-top: 100px;
 
 }
 
 
 .jumbotron > .container {
     width: 30%;
+    margin-top: 50px;
 }
 
 .input-group {
