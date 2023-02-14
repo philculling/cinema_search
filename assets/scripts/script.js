@@ -157,6 +157,10 @@ function displayLocalStorageOnInitialLoad() {
         return;
     }
 
+    const recentSearchesHeaderEl = $("<h5>");
+    recentSearchesHeaderEl.text("Recent searches");
+    recentSearchesHeaderEl.insertBefore("#history");
+
     storedSearches.forEach(element => {
         const liElement = $("<button>");
         liElement.addClass("list-group-item list-group-item-action");
