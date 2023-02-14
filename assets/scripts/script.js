@@ -65,7 +65,7 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     var imgURL = response.Poster;
     var image = $("<img>").attr("src", imgURL);
     posterDiv.append(image);
-    errorMessage.empty();
+    errorMessage.addClass("hide-element");
     persistUserSearch(searchInput);
   }
 else {
@@ -199,7 +199,7 @@ function searchInputReturnEvent() {
 
 searchButtonListener();
 
-// playButtonListener();
+playButtonListener();
 
 modalCloseButton();
 
