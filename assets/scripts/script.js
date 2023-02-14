@@ -65,8 +65,9 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     var imgURL = response.Poster;
     var image = $("<img>").attr("src", imgURL);
     posterDiv.append(image);
+
+    persistUserSearch(title);
     errorMessage.empty();
-    persistUserSearch(searchInput);
   }
 else {
   console.log("This is not a valid film");
@@ -144,6 +145,14 @@ function persistUserSearch(input) {
     if (storedSearches === null) {
         storedSearches = [input];
     } else {
+        // remove duplicate search
+        const index = storedSearches.findIndex(function (element) {
+            return element === input;
+        })
+        if (index >= 0) {
+            storedSearches.splice(index, 1);
+        }
+
         // ensure no more then 5 searches are displayed
         storedSearches.unshift(input);
         if (storedSearches.length > MAX_STORED_SEARCHES) {
@@ -172,6 +181,8 @@ function displayLocalStorageOnInitialLoad() {
         liElement.text(element);
         $("#history").append(liElement);
     });
+
+    $("#history-container").css("margin-bottom", "20px");
 }
 
 function searchHistoryButtonListener() {
