@@ -66,6 +66,7 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     var image = $("<img>").attr("src", imgURL);
     posterDiv.append(image);
     errorMessage.empty();
+    persistUserSearch(searchInput);
   }
 else {
   console.log("This is not a valid film");
@@ -115,7 +116,6 @@ function searchForAFilm() {
     }
 
     callOmdbApi();
-    persistUserSearch(searchInput);
 }
 
 function playButtonListener() {
@@ -162,6 +162,10 @@ function displayLocalStorageOnInitialLoad() {
         return;
     }
 
+    const recentSearchesHeaderEl = $("<h5>");
+    recentSearchesHeaderEl.text("Recent searches");
+    recentSearchesHeaderEl.insertBefore("#history");
+
     storedSearches.forEach(element => {
         const liElement = $("<button>");
         liElement.addClass("list-group-item list-group-item-action");
@@ -195,7 +199,7 @@ function searchInputReturnEvent() {
 
 searchButtonListener();
 
-playButtonListener();
+// playButtonListener();
 
 modalCloseButton();
 
