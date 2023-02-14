@@ -6,6 +6,7 @@
     height: 100vh;
 
 }
+
 #play-button {
     margin-top: 10px;    
 }
@@ -32,9 +33,13 @@ h2 {
 
 }
 
+
+.jumbotron > .container {
+    width: 30%;
+}
+
 .input-group {
     margin-top: 50px;
-    /* width: 50%; */
 }
 
 #film-search {
