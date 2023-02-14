@@ -1,10 +1,11 @@
 .bgImage {
-    background-image: url("/images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg");
+    background-image: url("../images/felix-mooneeram-evlkOfkQ5rE-unsplash.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 20%;
-}
+    position: relative;
+    height: 100vh;
 
+}
 #play-button {
     margin-top: 10px;    
 }
@@ -22,10 +23,13 @@
 
 h1 {
     font-family: 'Poppins', sans-serif;
+    color: white;
 }
 
 h2 {
     font-family: 'Poppins', sans-serif;
+    color: white;
+
 }
 
 .input-group {
