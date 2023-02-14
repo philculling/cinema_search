@@ -10,11 +10,11 @@ var posterDiv = $("#poster");
 var modalTitle = $('#modal-title');
 var modalBody = $('.modal-body');
 
+var invalidModalTitle = $("#invalidmodal-title");
+var invalidModalBody = $(".modal-body");
+
 var playButton = $("#play-button");
-
-
-//create Bootstrap modal for invalid submission
-
+var errorMessage = $("#errorMessage");
 
 function callOmdbApi() {
 var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" + omdbApi;
@@ -67,11 +67,13 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     posterDiv.append(image);
 
     persistUserSearch(title);
+    errorMessage.empty();
   }
 else {
   console.log("This is not a valid film");
+    errorMessage.removeClass("hide-element");
 }
-  })
+  });
 }
 
 //Youtube API Call - runs when play button clicked (after search)
@@ -208,7 +210,7 @@ function searchInputReturnEvent() {
 
 searchButtonListener();
 
-playButtonListener();
+// playButtonListener();
 
 modalCloseButton();
 
