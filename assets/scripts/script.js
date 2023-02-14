@@ -66,7 +66,7 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     var image = $("<img>").attr("src", imgURL);
     posterDiv.append(image);
 
-    persistUserSearch(searchInput);
+    persistUserSearch(title);
   }
 else {
   console.log("This is not a valid film");
@@ -171,6 +171,8 @@ function displayLocalStorageOnInitialLoad() {
         liElement.text(element);
         $("#history").append(liElement);
     });
+
+    $("#history-container").css("margin-bottom", "20px");
 }
 
 function searchHistoryButtonListener() {
