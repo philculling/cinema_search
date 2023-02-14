@@ -1,5 +1,9 @@
-
-
+.bgImage {
+    background-image: url("/images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20%;
+}
 
 #play-button {
     margin-top: 10px;    
