@@ -193,7 +193,7 @@ function searchInputReturnEvent() {
 
 searchButtonListener();
 
-playButtonListener();
+// playButtonListener();
 
 modalCloseButton();
 

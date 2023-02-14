@@ -1,7 +1,33 @@
+
+
+
 #play-button {
     margin-top: 10px;    
 }
 
 .hide-element {
     display: none;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-group {
+    margin-top: 50px;
+    /* width: 50%; */
+}
+
+#film-search {
+    height: 50px;
+    width: 50px;
+}
+
+.btn-search {
+    height: 50px;
+
 }
