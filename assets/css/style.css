@@ -9,6 +9,13 @@
     display: none;
 }
 
+#errorMessage {
+    margin-top: 10px;
+    margin-left: 20px;
+    color: red;
+    font-size: large;
+}
+
 h1 {
     font-family: 'Poppins', sans-serif;
 }
