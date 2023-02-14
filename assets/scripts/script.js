@@ -61,6 +61,8 @@ var queryURLomdbapi = "http://www.omdbapi.com/?t=" + searchInput + "&apikey=" + 
     var imgURL = response.Poster;
     var image = $("<img>").attr("src", imgURL);
     posterDiv.append(image);
+
+    persistUserSearch(searchInput);
   }
 else {
   console.log("This is not a valid film");
@@ -109,7 +111,6 @@ function searchForAFilm() {
     }
 
     callOmdbApi();
-    persistUserSearch(searchInput);
 }
 
 function playButtonListener() {
