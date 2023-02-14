@@ -5,3 +5,10 @@
 .hide-element {
     display: none;
 }
+
+#errorMessage {
+    margin-top: 10px;
+    margin-left: 20px;
+    color: red;
+    font-size: large;
+}
