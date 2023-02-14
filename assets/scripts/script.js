@@ -10,11 +10,14 @@ var posterDiv = $("#poster");
 var modalTitle = $('#modal-title');
 var modalBody = $('.modal-body');
 
+var playButton = $("#play-button");
 
+
+//create Bootstrap modal for invalid submission
 
 
 function callOmdbApi() {
-var queryURLomdbapi = "http://www.omdbapi.com/?t=" + searchInput + "&apikey=" + omdbApi;
+var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" + omdbApi;
   $.ajax({
     url: queryURLomdbapi,
     method: "GET"
@@ -57,6 +60,7 @@ var queryURLomdbapi = "http://www.omdbapi.com/?t=" + searchInput + "&apikey=" + 
     var boxOffice = response.BoxOffice;
     var pBoxOffice = $("<p>").text("Box Office: " + boxOffice);
     filmDiv.append(pBoxOffice);
+    playButton.removeClass("hide-element");
 
     var imgURL = response.Poster;
     var image = $("<img>").attr("src", imgURL);
