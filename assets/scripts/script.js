@@ -21,6 +21,11 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
   }).then(function (response) {
     if (response.Response === "True") {
 
+  $('html, body').animate({
+    scrollTop: $("#poster").offset().top
+  }, 100);
+
+
     $("#filmdata").empty();
     $("#poster").empty();
 
