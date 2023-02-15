@@ -27,12 +27,16 @@ h1 {
     color: white;
 }
 
+
 h2 {
     font-family: 'Poppins', sans-serif;
     color: white;
     margin-top: 100px;
 }
 
+.filmData {
+    color: black;
+}
 
 .jumbotron > .container {
     margin-top: 50px;
@@ -50,4 +54,13 @@ h2 {
 .btn-search {
     height: 50px;
     border-radius: 35px;
+}
+
+img {
+    height: 600px;
+}
+
+.card {
+    height: 400px;
+    width: 400px;
 }

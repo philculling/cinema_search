@@ -24,28 +24,41 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     $("#filmdata").empty();
     $("#poster").empty();
 
+ 
+
     var title = response.Title;
-    var pTitle = $("<p>").text("Title: " + title);
-    filmDiv.append(pTitle);
+    var pTitle = $("<h2 class='filmData'>").text(title);
+    // filmDiv.append(pTitle);
     var year = response.Year;
     var pYear = $("<p>").text("Year: " + year);
-    filmDiv.append(pYear);
+    // filmDiv.append(pYear);
     var rating = response.Rated;
     var pRating = $("<p>").text("Rating: " + rating);
-    filmDiv.append(pRating);
+    // filmDiv.append(pRating);
     var released = response.Released;
     var pReleased = $("<p>").text("Released: " + released);
-    filmDiv.append(pReleased);
+    // filmDiv.append(pReleased);
     var runtime = response.Runtime;
     var pRuntime = $("<p>").text("Run time: " + runtime);
-    filmDiv.append(pRuntime);
+    // filmDiv.append(pRuntime);
     var plot = response.Plot;
     var pPlot = $("<p>").text("Plot: " + plot);
-    filmDiv.append(pPlot);
+    // filmDiv.append(pPlot);
     var boxOffice = response.BoxOffice;
     var pBoxOffice = $("<p>").text("Box Office: " + boxOffice);
-    filmDiv.append(pBoxOffice);
+    // filmDiv.append(pBoxOffice);
     playButton.removeClass("hide-element");
+
+    filmDiv.append(`
+    <ul class="list-group">
+        <li class="list-group-item display-3">${title}</li>
+        <li class="list-group-item lead"><b>Year:</b> ${year}</li>
+        <li class="list-group-item lead"><b>Rating:</b> ${rating}</li>
+        <li class="list-group-item lead"><b>Plot:</b> ${plot}</li>
+        <li class="list-group-item lead"><b>Box Office:</b> ${boxOffice}</li>
+    </ul>`)
+
+
 
     var imgURL = response.Poster;
     var image = $("<img>").attr("src", imgURL);
