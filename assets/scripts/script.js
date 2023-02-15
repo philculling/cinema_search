@@ -56,6 +56,7 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     var imgURL = response.Poster;
     var image = $("<img>").attr("src", imgURL);
     image.addClass("poster");
+    image.addClass("center-block");
     posterDiv.append(image);
 
     errorMessage.addClass("hide-element");
