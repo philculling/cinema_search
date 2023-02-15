@@ -27,26 +27,13 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
  
 
     var title = response.Title;
-    var pTitle = $("<h2 class='filmData'>").text(title);
-    // filmDiv.append(pTitle);
     var year = response.Year;
-    var pYear = $("<p>").text("Year: " + year);
-    // filmDiv.append(pYear);
     var rating = response.Rated;
-    var pRating = $("<p>").text("Rating: " + rating);
-    // filmDiv.append(pRating);
     var released = response.Released;
-    var pReleased = $("<p>").text("Released: " + released);
-    // filmDiv.append(pReleased);
     var runtime = response.Runtime;
-    var pRuntime = $("<p>").text("Run time: " + runtime);
-    // filmDiv.append(pRuntime);
     var plot = response.Plot;
-    var pPlot = $("<p>").text("Plot: " + plot);
-    // filmDiv.append(pPlot);
     var boxOffice = response.BoxOffice;
-    var pBoxOffice = $("<p>").text("Box Office: " + boxOffice);
-    // filmDiv.append(pBoxOffice);
+
     playButton.removeClass("hide-element");
 
     filmDiv.append(`
