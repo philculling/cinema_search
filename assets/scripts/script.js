@@ -4,7 +4,7 @@ const MAX_STORED_SEARCHES = 5;
 var omdbApi = "d5cced46";
 var searchInput = "";
 
-var filmDiv = $("#filmdata");
+var filmDiv = $("#filmDetail");
 var posterDiv = $("#poster");
 
 var modalTitle = $('#modal-title');
@@ -21,7 +21,7 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
   }).then(function (response) {
     if (response.Response === "True") {
 
-    $("#filmdata").empty();
+    $("#filmDetail").empty();
     $("#poster").empty();
 
  
@@ -62,6 +62,7 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
 
     var imgURL = response.Poster;
     var image = $("<img>").attr("src", imgURL);
+    image.addClass("poster");
     posterDiv.append(image);
 
     errorMessage.addClass("hide-element");
