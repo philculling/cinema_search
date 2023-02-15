@@ -14,7 +14,7 @@ We wanted the saved buttons to be able to be selected by the user and update the
 We wanted to develop our skills of using server-side APIs.
 We wanted to develop our skills of using github branching workflow.
 We wanted to develop our skills of agile software development.
-We wanted to store previous user searches in local storage and make them available to be resused.
+We wanted to store previous user searches in local storage and make them available to be reused.
 We wanted to be able to clear searches.
 We wanted to be able to ensure that the app could continue to run despite potential invalid inputs from the user.
 We wanted to reinforce our learning of html, JavaScript, CSS and jQuery through this project.
@@ -24,13 +24,16 @@ We wanted to deploy our finished product and check it had no errors.
 n/a
 
 ## Usage
-When the website is viewed, the user can search for a film. After entering the name of the film and clicking on 'Search' the user will see film information FINISH THIS.
- The user can add COMPLETE to view more COMPLETE. The user's search history is saved on screen as buttons. The buttons can be clicked on and the browser will refresh and update with information for that film.
+When the website is viewed, the user can search for a film from the OMDB API. After entering the name of the film and clicking on 'Search' the user will see a poster on the left of the browser and interesting film information on the right. The user will also see a "Play Clip" button.
+On clicking the "Play Clip" button, the user brings up a modal to the screen which enables them to play a trailer which is called from the YouTube API.
+The user can continue to search for films and opt to view trailers if they would like to.
+Previous searches are saved on screen as buttons in a history section. We limited the number of saved searches to 5 so that the browser would not become cluttered, and we disabled duplicate buttons of the same film.
+The (search history) buttons can be clicked on and the browser will refresh and update with information for that film.
 
-Site is published at https://philculling.github.io/cinema_search
+The site is published at https://philculling.github.io/cinema_search; this was our original name.
 
 Screenshot:
-![Screenshot](./assets/Weatherdashboard.png "Screenshot of tbc") UPDATE THIS
+![Screenshot](./assets/images/Screenshot.png "Screenshot of work in progress")
 
 ## Credits
 
