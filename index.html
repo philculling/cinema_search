@@ -37,18 +37,22 @@
 
     <div class="container" id="filmInfo">
         <div class="row">
-            <div class="col-sm-6" id="posterContainer"><!--We want this to be on the left-->
+            <div class="col-sm-12 col-md-6" id="posterContainer"><!--We want this to be on the left-->
                 <div id="poster">
                 </div>
+            </div>
+            <div class="col-sm-12 col-md-6" id="filmdata"><!--We want this to be on the right-->
+                <div id="filmDetail">
+
+                </div>
                 <!-- Button to trigger modal -->
-                <button id="play-button" type="button" class="btn btn-primary hide-element" data-toggle="modal" data-target="#playYoutubeVideo">
+                <button id="play-button" type="button" class="btn btn-primary hide-element btn-block" data-toggle="modal" data-target="#playYoutubeVideo">
                     Play Clip
                 </button>
             </div>
-            <div class="col-sm-6" id="filmdata"><!--We want this to be on the right-->
-        </div>
-        <div id="filmdata">
-        </div>
+
+        <!-- <div id="filmdata">
+        </div> -->
     </div>
 
     <!-- Modal -->

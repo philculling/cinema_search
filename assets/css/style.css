@@ -12,7 +12,7 @@ html {
 }
 
 #play-button {
-    margin-top: 10px;    
+    margin-top: 10px;   
 }
 
 .hide-element {
@@ -30,6 +30,7 @@ h1 {
     font-family: 'Poppins', sans-serif;
     color: white;
 }
+
 
 h2 {
     font-family: 'Poppins', sans-serif;
@@ -54,4 +55,17 @@ h2 {
 .btn-search {
     height: 50px;
     border-radius: 35px;
+}
+
+img {
+    height: 600px;
+}
+
+.card {
+    height: 400px;
+    width: 400px;
+}
+
+.poster {
+    margin: 10px 0px 40px 0px;
 }
