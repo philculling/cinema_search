@@ -1,6 +1,7 @@
 var ytApi = "AIzaSyCbq2wbLQScvSCu8bJhd4ByuojcF55ekzo"; 
 const LOCAL_STORAGE_SEARCH_KEY = "searches";
 const MAX_STORED_SEARCHES = 5;
+const RECENT_HISTORY_BUTTON_KEY = 'recent-searches-button';
 var omdbApi = "d5cced46";
 var searchInput = "";
 
@@ -162,27 +163,55 @@ function displayLocalStorageOnInitialLoad() {
         return;
     }
 
-    const recentSearchesHeaderEl = $("<h5>");
-    recentSearchesHeaderEl.text("Recent searches");
-    recentSearchesHeaderEl.insertBefore("#history");
+    const divInnerCarouselEl = $("<div>");
+    divInnerCarouselEl.addClass("carousel-inner col-12");
+    divInnerCarouselEl.css("width", "100%");
+    divInnerCarouselEl.css("max-height", "300px");
+    divInnerCarouselEl.css("background-color", "grey");
+    $("#recent-search-carousel").append(divInnerCarouselEl);
 
-    storedSearches.forEach(element => {
-        const liElement = $("<button>");
-        liElement.addClass("list-group-item list-group-item-action");
-        liElement.text(element.title);
-        $("#history").append(liElement);
+    storedSearches.forEach( function(element, index) {
+        const carouselItemDivEl = $("<div>");
+        carouselItemDivEl.addClass("carousel-item")
+        if (index === 0) {
+            carouselItemDivEl.addClass("active");
+        }
+
+        const buttonEl = $("<button>");
+        buttonEl.addClass("recent-history")
+        buttonEl.data(RECENT_HISTORY_BUTTON_KEY, element.title)
+        buttonEl.css("border", "none");
+
+        const imgEl = $("<img>");
+        imgEl.attr("src", element.imageURL);
+        imgEl.addClass("d-block");
+        imgEl.css("height", "300px");
+
+        const captionDivEl = $("<div>");
+        captionDivEl.addClass("carousel-caption d-none d-md-block");
+        captionDivEl.css
+
+        const titleEl = $("<h5>");
+        titleEl.text(element.title);
+
+        divInnerCarouselEl.append(carouselItemDivEl);
+        carouselItemDivEl.append(buttonEl);
+        buttonEl.append(imgEl);
+        carouselItemDivEl.append(captionDivEl);
+        captionDivEl.append(titleEl);
     });
+
 
     $("#history-container").css("margin-bottom", "20px");
 }
 
 function searchHistoryButtonListener() {
-    $(".list-group-item-action").on("click", function(event) {
+    $(".recent-history").on("click", function(event) {
         // get element
         const buttonEl = event.currentTarget;
         
         // get film title
-        const filmTitle = $(buttonEl).text();
+        const filmTitle = $(buttonEl).data(RECENT_HISTORY_BUTTON_KEY);
         
         // make call
         searchInput = filmTitle;
