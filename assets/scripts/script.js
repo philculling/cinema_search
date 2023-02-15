@@ -21,6 +21,12 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
   }).then(function (response) {
     if (response.Response === "True") {
 
+
+  $('html, body').animate({
+    scrollTop: $("#poster").offset().top
+  }, 100);
+
+
     $("#filmDetail").empty();
     $("#poster").empty();
 
@@ -68,7 +74,7 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     errorMessage.addClass("hide-element");
     persistUserSearch(searchInput);
 
-    persistUserSearch(title);
+    persistUserSearch(title, imgURL);
     errorMessage.empty();
   }
 else {
@@ -134,24 +140,32 @@ function modalCloseButton() {
     });
 }
 
-function persistUserSearch(input) {
+function persistUserSearch(title, imageURL) {
     // parse local storage
     var storedSearches = JSON.parse(localStorage.getItem(LOCAL_STORAGE_SEARCH_KEY));
 
     // if object is null, set it has an array, otherwise append new search input
     if (storedSearches === null) {
-        storedSearches = [input];
+        storedSearches = [ 
+            {
+                title: title,
+                imageURL: imageURL
+            }
+        ];
     } else {
         // remove duplicate search
         const index = storedSearches.findIndex(function (element) {
-            return element === input;
+            return element.title === title;
         })
         if (index >= 0) {
             storedSearches.splice(index, 1);
         }
 
         // ensure no more then 5 searches are displayed
-        storedSearches.unshift(input);
+        storedSearches.unshift({
+            title: title,
+            imageURL: imageURL
+        });
         if (storedSearches.length > MAX_STORED_SEARCHES) {
             storedSearches = storedSearches.slice(0, MAX_STORED_SEARCHES);
         }
@@ -175,7 +189,7 @@ function displayLocalStorageOnInitialLoad() {
     storedSearches.forEach(element => {
         const liElement = $("<button>");
         liElement.addClass("list-group-item list-group-item-action");
-        liElement.text(element);
+        liElement.text(element.title);
         $("#history").append(liElement);
     });
 

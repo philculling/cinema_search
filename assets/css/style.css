@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .bgImage {
     background: url(../images/felix-mooneeram-evlkOfkQ5rE-unsplash.png) center center no-repeat;
     background-repeat: no-repeat;
