@@ -10,9 +10,6 @@ var posterDiv = $("#poster");
 var modalTitle = $('#modal-title');
 var modalBody = $('.modal-body');
 
-var invalidModalTitle = $("#invalidmodal-title");
-var invalidModalBody = $(".modal-body");
-
 var playButton = $("#play-button");
 var errorMessage = $("#errorMessage");
 
@@ -22,19 +19,7 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     url: queryURLomdbapi,
     method: "GET"
   }).then(function (response) {
-    console.log(response.Response);
     if (response.Response === "True") {
-    //tests, all fine
-    console.log(queryURLomdbapi);
-    console.log(response);
-    console.log(response.Title);
-    console.log(response.Year);
-    console.log(response.Rated);
-    console.log(response.Released);
-    console.log(response.Runtime);
-    console.log(response.Plot);
-    console.log(response.BoxOffice);
-    console.log(response.Poster);
 
     $("#filmdata").empty();
     $("#poster").empty();
@@ -73,7 +58,6 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     errorMessage.empty();
   }
 else {
-  console.log("This is not a valid film");
     errorMessage.removeClass("hide-element");
 }
   });
@@ -124,21 +108,17 @@ function searchForAFilm() {
 
 function playButtonListener() {
     $("#play-button").on("click", function() {
-        
         callYoutubeApi();
     });
 }
 
 function modalCloseButton() {
     $("#close-button").on("click", function() {
-        
         //empty modal contents on close
         modalTitle.empty();
         modalBody.empty();
     });
 }
-
-
 
 function persistUserSearch(input) {
     // parse local storage
