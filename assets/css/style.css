@@ -31,12 +31,10 @@ h2 {
     font-family: 'Poppins', sans-serif;
     color: white;
     margin-top: 100px;
-
 }
 
 
 .jumbotron > .container {
-    width: 30%;
     margin-top: 50px;
 }
 
@@ -46,12 +44,10 @@ h2 {
 
 #film-search {
     height: 50px;
-    width: 50px;
     border-radius: 35px 0px 0px 35px;
 }
 
 .btn-search {
     height: 50px;
     border-radius: 35px;
-
 }
