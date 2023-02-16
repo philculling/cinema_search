@@ -177,32 +177,20 @@ function displayLocalStorageOnInitialLoad() {
     recentSearchesHeaderEl.insertBefore("#history");
 
     storedSearches.forEach(element => {
-
         const colDiv = $("<div>");
         colDiv.addClass("col-auto")
 
         const cardEl = $("<div>");
         cardEl.addClass("card card-block");
-        cardEl.css("width", "200px");
-        cardEl.css("height", "400px");
         cardEl.data("title", element.title);
 
         const imgEl = $("<img>");
         imgEl.addClass("card-img-top");
         imgEl.attr("src", element.imageURL);
 
-        const cardBodyEl = $("<div>");
-        cardBodyEl.addClass("card-body");
-
-        const cardTitleEl = $("<p>");
-        cardTitleEl.addClass("card-text");
-        cardTitleEl.text(element.title);
-
         $("#history").append(colDiv);
         colDiv.append(cardEl);
         cardEl.append(imgEl);
-        cardEl.append(cardBodyEl);
-        cardBodyEl.append(cardTitleEl);
     });
 
     $("#history-container").css("margin-bottom", "20px");
