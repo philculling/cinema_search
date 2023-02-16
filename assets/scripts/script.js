@@ -185,6 +185,7 @@ function displayLocalStorageOnInitialLoad() {
         cardEl.addClass("card card-block");
         cardEl.css("width", "200px");
         cardEl.css("height", "400px");
+        cardEl.data("title", element.title);
 
         const imgEl = $("<img>");
         imgEl.addClass("card-img-top");
@@ -202,19 +203,18 @@ function displayLocalStorageOnInitialLoad() {
         cardEl.append(imgEl);
         cardEl.append(cardBodyEl);
         cardBodyEl.append(cardTitleEl);
-    
     });
 
     $("#history-container").css("margin-bottom", "20px");
 }
 
 function searchHistoryButtonListener() {
-    $(".list-group-item-action").on("click", function(event) {
+    $(".card").on("click", function(event) {
         // get element
         const buttonEl = event.currentTarget;
         
         // get film title
-        const filmTitle = $(buttonEl).text();
+        const filmTitle = $(buttonEl).data("title");
         
         // make call
         searchInput = filmTitle;
