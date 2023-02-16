@@ -62,7 +62,6 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     posterDiv.append(image);
 
     errorMessage.addClass("hide-element");
-    persistUserSearch(searchInput);
 
     persistUserSearch(title, imgURL);
     errorMessage.empty();
@@ -177,10 +176,34 @@ function displayLocalStorageOnInitialLoad() {
     recentSearchesHeaderEl.insertBefore("#history");
 
     storedSearches.forEach(element => {
-        const liElement = $("<button>");
-        liElement.addClass("list-group-item list-group-item-action");
-        liElement.text(element.title);
-        $("#history").append(liElement);
+        const colDiv = $("<div>");
+        colDiv.addClass("col-3")
+
+        const cardEl = $("<div>");
+        cardEl.addClass("card card-block");
+        cardEl.css("width", "200px");
+        cardEl.css("height", "400px");
+
+        const imgEl = $("<img>");
+        imgEl.addClass("card-img-top");
+        imgEl.attr("src", element.imageURL);
+
+        const cardBodyEl = $("<div>");
+        cardBodyEl.addClass("card-body");
+
+        const cardTitleEl = $("<p>");
+        cardTitleEl.addClass("card-text");
+        cardTitleEl.text(element.title);
+
+        $("#history").append(colDiv);
+        colDiv.append(cardEl);
+        cardEl.append(imgEl);
+        cardEl.append(cardBodyEl);
+        cardBodyEl.append(cardTitleEl);
+        // const liElement = $("<button>");
+        // liElement.addClass("list-group-item list-group-item-action");
+        // liElement.text(element.title);
+        // $("#history").append(liElement);
     });
 
     $("#history-container").css("margin-bottom", "20px");
