@@ -78,3 +78,14 @@ footer {
     color: white;
     margin: 30px 0 0 0;
   }
+
+  .card-body {
+    min-height: 300px;
+    min-width: 300px;
+    margin-right: 5px;
+}
+
+.scroll {
+    max-height: 300px;
+    overflow-x: auto;
+}
