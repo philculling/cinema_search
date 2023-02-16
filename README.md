@@ -35,6 +35,10 @@ The site is published at https://philculling.github.io/cinema_search; this was o
 Screenshot:
 ![Screenshot](./assets/images/Screenshot.png "Screenshot of work in progress")
 
+![Screenshot](./assets/images/Screenshot%202.png "Screenshot of search area")
+
+![Screenshot](./assets/images/Screenshot%203.png "Screenshot of results")
+
 ## Credits
 
 ## License
