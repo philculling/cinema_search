@@ -176,22 +176,32 @@ function displayLocalStorageOnInitialLoad() {
     recentSearchesHeaderEl.insertBefore("#history");
 
     storedSearches.forEach(element => {
-        const liElement = $("<button>");
-        liElement.addClass("list-group-item list-group-item-action");
-        liElement.text(element.title);
-        $("#history").append(liElement);
+        const colDiv = $("<div>");
+        colDiv.addClass("col-auto")
+
+        const cardEl = $("<div>");
+        cardEl.addClass("card card-block");
+        cardEl.data("title", element.title);
+
+        const imgEl = $("<img>");
+        imgEl.addClass("card-img-top");
+        imgEl.attr("src", element.imageURL);
+
+        $("#history").append(colDiv);
+        colDiv.append(cardEl);
+        cardEl.append(imgEl);
     });
 
     $("#history-container").css("margin-bottom", "20px");
 }
 
 function searchHistoryButtonListener() {
-    $(".list-group-item-action").on("click", function(event) {
+    $(".card").on("click", function(event) {
         // get element
         const buttonEl = event.currentTarget;
         
         // get film title
-        const filmTitle = $(buttonEl).text();
+        const filmTitle = $(buttonEl).data("title");
         
         // make call
         searchInput = filmTitle;
