@@ -48,6 +48,8 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
         <li class="list-group-item lead"><b>Year:</b> ${year}</li>
         <li class="list-group-item lead"><b>Rating:</b> ${rating}</li>
         <li class="list-group-item lead"><b>Plot:</b> ${plot}</li>
+        <li class="list-group-item lead"><b>Runtime:</b> ${runtime}</li>
+        <li class="list-group-item lead"><b>Released:</b> ${released}</li>
         <li class="list-group-item lead"><b>Box Office:</b> ${boxOffice}</li>
     </ul>`)
 
