@@ -62,7 +62,6 @@ var queryURLomdbapi = "https://www.omdbapi.com/?t=" + searchInput + "&apikey=" +
     posterDiv.append(image);
 
     errorMessage.addClass("hide-element");
-    persistUserSearch(searchInput);
 
     persistUserSearch(title, imgURL);
     errorMessage.empty();
